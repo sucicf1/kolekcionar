@@ -28,11 +28,6 @@ class Coin extends Item
     protected $isCurrentlyInUse;
     
     /**
-     * @ORM\Column(type="decimal", precision=5, scale=2)
-     */
-    protected $qualityPercent;
-    
-    /**
      * @ORM\Column(type="boolean")
      */
     protected $isRare;

@@ -31,6 +31,11 @@ class Item
      * @ORM\Column(type="datetime")
      */
     protected $productionDate;
+    
+    /**
+     * @ORM\Column(type="decimal", precision=5, scale=2)
+     */
+    protected $qualityPercent;
 
     /**
      * Get id

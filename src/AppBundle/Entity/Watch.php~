@@ -1,0 +1,54 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="watch")
+ */
+class Watch extends Item
+{
+   /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    
+    /**
+     * @ORM\Column(type="string", length=250)
+     */
+    protected $model;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $isMechanical;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $isDigital;
+    
+    /**
+     * @ORM\Column(type="decimal", scale=2)
+     */
+    protected $maxDepthWaterResistant;
+    
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $isDisplayingCurrentDate;
+    
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $isDisplayingDayName;
+    
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    protected $batteryType;
+}

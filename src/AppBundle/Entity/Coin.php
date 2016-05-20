@@ -38,6 +38,16 @@ class Coin extends Item
     protected $productionMaterial;
 
     /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * Set printedValue
      *
      * @param string $printedValue
@@ -84,29 +94,6 @@ class Coin extends Item
     }
 
     /**
-     * Set qualityPercent
-     *
-     * @param \percent $qualityPercent
-     * @return Coin
-     */
-    public function setQualityPercent(\percent $qualityPercent)
-    {
-        $this->qualityPercent = $qualityPercent;
-
-        return $this;
-    }
-
-    /**
-     * Get qualityPercent
-     *
-     * @return \percent 
-     */
-    public function getQualityPercent()
-    {
-        return $this->qualityPercent;
-    }
-
-    /**
      * Set isRare
      *
      * @param boolean $isRare
@@ -150,5 +137,97 @@ class Coin extends Item
     public function getProductionMaterial()
     {
         return $this->productionMaterial;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Coin
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set price
+     *
+     * @param string $price
+     * @return Coin
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return string 
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set productionDate
+     *
+     * @param \DateTime $productionDate
+     * @return Coin
+     */
+    public function setProductionDate($productionDate)
+    {
+        $this->productionDate = $productionDate;
+
+        return $this;
+    }
+
+    /**
+     * Get productionDate
+     *
+     * @return \DateTime 
+     */
+    public function getProductionDate()
+    {
+        return $this->productionDate;
+    }
+
+    /**
+     * Set qualityPercent
+     *
+     * @param string $qualityPercent
+     * @return Coin
+     */
+    public function setQualityPercent($qualityPercent)
+    {
+        $this->qualityPercent = $qualityPercent;
+
+        return $this;
+    }
+
+    /**
+     * Get qualityPercent
+     *
+     * @return string 
+     */
+    public function getQualityPercent()
+    {
+        return $this->qualityPercent;
     }
 }

@@ -115,4 +115,27 @@ class Item
     {
         return $this->productionDate;
     }
+
+    /**
+     * Set qualityPercent
+     *
+     * @param string $qualityPercent
+     * @return Item
+     */
+    public function setQualityPercent($qualityPercent)
+    {
+        $this->qualityPercent = $qualityPercent;
+
+        return $this;
+    }
+
+    /**
+     * Get qualityPercent
+     *
+     * @return string 
+     */
+    public function getQualityPercent()
+    {
+        return $this->qualityPercent;
+    }
 }

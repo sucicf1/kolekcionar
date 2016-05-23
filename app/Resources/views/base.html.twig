@@ -4,10 +4,29 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    <body height="100%" style="padding-bottom: 50px">
+        <div style="border-bottom: solid black; height: 55px">hkj
+        </div>
+        
+        <div id="wrapper" style="margin-left: 150px; position: relative">
+            <div id="sidebarMenu" style="margin-left: -150px; float: left; width: 150px">
+                {% block sidebarMenu %}
+                    gfg
+                {% endblock %}
+            </div>
+
+            <div id="container" width="100%">
+                {% block container %}
+                    vjgg
+                {% endblock %}
+            </div>
+            
+            <div id="clear" style="width: 100%;"></div>
+            
+        </div>
+        
+        <div width="100%" style="border-top: solid black; bottom: 0; height: 55px; position: fixed; width: 100%">hjh
+        </div>
     </body>
 </html>

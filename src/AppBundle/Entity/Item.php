@@ -36,6 +36,11 @@ class Item
      * @ORM\Column(type="decimal", precision=5, scale=2)
      */
     protected $qualityPercent;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="items")
+     */
+    protected $user;
 
     /**
      * Get id
@@ -137,5 +142,28 @@ class Item
     public function getQualityPercent()
     {
         return $this->qualityPercent;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     * @return Item
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

@@ -4,3 +4,17 @@ app:
     
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+item_index:
+    path: /item/
+    defaults: {_controller: AppBundle:Item:index }
+    
+item_index_sort:
+    path: /item/{ascOrDesc}-by-{orderParameter}
+    defaults: {_controller: AppBundle:Item:indexSort, ascOrDesc:asc}
+    requirements:
+        ascOrDesc: asc|desc
+        
+coin_index:
+    path: /coin/
+    defaults: {_controller: AppBundle:Coin:index }

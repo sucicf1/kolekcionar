@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -20,11 +21,106 @@ class User extends BaseUser
     
     /**
      * @ORM\Column(type="string", nullable=true)
+     * @Assert\Type(
+     *      type="string",
+     *      message="Incorrect type",
+     *      groups={"Registration", "Profile"}
+     *  )
      */
-    protected $surname;
+    protected $name;
     
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", nullable=true)
+     * @Assert\Type(
+     *      type="string",
+     *      message="Incorrect type",
+     *      groups={"Registration", "Profile"}
+     *  )
      */
-    protected $birthYear;
+    protected $surname;
+
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Item", mappedBy="user")
+     */
+    protected $items;
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return User
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set surname
+     *
+     * @param string $surname
+     * @return User
+     */
+    public function setSurname($surname)
+    {
+        $this->surname = $surname;
+
+        return $this;
+    }
+
+    /**
+     * Get surname
+     *
+     * @return string 
+     */
+    public function getSurname()
+    {
+        return $this->surname;
+    }
+
+    /**
+     * Add items
+     *
+     * @param \AppBundle\Entity\Item $items
+     * @return User
+     */
+    public function addItem(\AppBundle\Entity\Item $items)
+    {
+        $this->items[] = $items;
+
+        return $this;
+    }
+
+    /**
+     * Remove items
+     *
+     * @param \AppBundle\Entity\Item $items
+     */
+    public function removeItem(\AppBundle\Entity\Item $items)
+    {
+        $this->items->removeElement($items);
+    }
+
+    /**
+     * Get items
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getItems()
+    {
+        return $this->items;
+    }
 }

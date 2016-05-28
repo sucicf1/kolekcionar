@@ -23,7 +23,8 @@ class User extends BaseUser
      * @ORM\Column(type="string", nullable=true)
      * @Assert\Type(
      *      type="string",
-     *      message="Incorrect type"
+     *      message="Incorrect type",
+     *      groups={"Registration", "Profile"}
      *  )
      */
     protected $name;
@@ -32,7 +33,8 @@ class User extends BaseUser
      * @ORM\Column(type="string", nullable=true)
      * @Assert\Type(
      *      type="string",
-     *      message="Incorrect type"
+     *      message="Incorrect type",
+     *      groups={"Registration", "Profile"}
      *  )
      */
     protected $surname;

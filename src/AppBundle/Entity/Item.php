@@ -7,6 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Table(name="item")
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
+ * @ORM\DiscriminatorMap({"item"="Item","watch" = "Watch", "coin" = "Coin"})
  */
 class Item 
 {
@@ -28,17 +31,13 @@ class Item
     protected $price;
     
     /**
-     * @ORM\Column(type="datetime")
-     */
-    protected $productionDate;
-    
-    /**
      * @ORM\Column(type="decimal", precision=5, scale=2)
      */
     protected $qualityPercent;
     
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="items")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     protected $user;
 
@@ -96,29 +95,6 @@ class Item
     public function getPrice()
     {
         return $this->price;
-    }
-
-    /**
-     * Set productionDate
-     *
-     * @param \DateTime $productionDate
-     * @return Item
-     */
-    public function setProductionDate($productionDate)
-    {
-        $this->productionDate = $productionDate;
-
-        return $this;
-    }
-
-    /**
-     * Get productionDate
-     *
-     * @return \DateTime 
-     */
-    public function getProductionDate()
-    {
-        return $this->productionDate;
     }
 
     /**

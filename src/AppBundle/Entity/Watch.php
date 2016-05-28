@@ -6,17 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="watch")
  */
 class Watch extends Item
 {
-   /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    protected $id;
-    
     /**
      * @ORM\Column(type="string", length=250)
      */
@@ -51,16 +43,6 @@ class Watch extends Item
      * @ORM\Column(type="string", length=50)
      */
     protected $batteryType;
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set model
@@ -221,120 +203,5 @@ class Watch extends Item
     public function getBatteryType()
     {
         return $this->batteryType;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Watch
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set price
-     *
-     * @param string $price
-     * @return Watch
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
-
-        return $this;
-    }
-
-    /**
-     * Get price
-     *
-     * @return string 
-     */
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    /**
-     * Set productionDate
-     *
-     * @param \DateTime $productionDate
-     * @return Watch
-     */
-    public function setProductionDate($productionDate)
-    {
-        $this->productionDate = $productionDate;
-
-        return $this;
-    }
-
-    /**
-     * Get productionDate
-     *
-     * @return \DateTime 
-     */
-    public function getProductionDate()
-    {
-        return $this->productionDate;
-    }
-
-    /**
-     * Set qualityPercent
-     *
-     * @param string $qualityPercent
-     * @return Watch
-     */
-    public function setQualityPercent($qualityPercent)
-    {
-        $this->qualityPercent = $qualityPercent;
-
-        return $this;
-    }
-
-    /**
-     * Get qualityPercent
-     *
-     * @return string 
-     */
-    public function getQualityPercent()
-    {
-        return $this->qualityPercent;
-    }
-
-    /**
-     * Set user
-     *
-     * @param \AppBundle\Entity\User $user
-     * @return Watch
-     */
-    public function setUser(\AppBundle\Entity\User $user = null)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \AppBundle\Entity\User 
-     */
-    public function getUser()
-    {
-        return $this->user;
     }
 }

@@ -18,3 +18,7 @@ item_index_sort:
 coin_index:
     path: /coin/
     defaults: {_controller: AppBundle:Coin:index }
+    
+watch_create:
+    path: /watch/add
+    defaults: {_controller: AppBundle:Watch:create }

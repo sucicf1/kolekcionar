@@ -6,6 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ItemController extends Controller
 {
+    public function indexAction() 
+    {
+        $items = $this->getUser()->getItems();
+        
+        return $this->render('Item/index.html.twig', array('items'=>$items));
+    }
+    
     public function indexSortAction($ascOrDesc, $orderParameter) 
     {   
         if ($orderParameter!='id' && $orderParameter!='name'

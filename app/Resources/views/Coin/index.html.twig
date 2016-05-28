@@ -1,10 +1,13 @@
 {% extends "::layout.html.twig" %}
 
 {% block container %}
-    {% for item in items %}
-        {{item.name}} <br />
-        {{item.price}} <br />
-        {{item.productionDate|date('d.m.y')}} <br />
-        {{item.qualityPercent}} <br />
+    {% for coin in coins %}
+        {{coin.name}} <br />
+        {{coin.price}} <br />
+        {{coin.qualityPercent}} <br />
+        {{coin.printedValue}} <br />
+        {{coin.isCurrentlyInUse}} <br />
+        {{coin.isRare}} <br />
+        {{coin.productionMaterial}} <br /><br />
     {% endfor %}
 {% endblock %}

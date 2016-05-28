@@ -4,7 +4,6 @@
     {% for item in items %}
         {{item.name}} <br />
         {{item.price}} <br />
-        {{item.productionDate|date('d.m.y')}} <br />
-        {{item.qualityPercent}} <br />
+        {{item.qualityPercent}} <br /> <br />
     {% endfor %}
 {% endblock %}

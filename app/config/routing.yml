@@ -11,13 +11,35 @@ item_index:
     
 item_index_sort:
     path: /item/{ascOrDesc}-by-{orderParameter}
-    defaults: {_controller: AppBundle:Item:indexSort, ascOrDesc:asc}
+    defaults: {_controller: AppBundle:Item:indexSort}
     requirements:
         ascOrDesc: asc|desc
         
+item_add:
+    path: /item/add
+    defaults: {_controller: AppBundle:Item:itemAdd}
+    
+item_edit:
+    path: /item/{id}/edit
+    defaults: {_controller: AppBundle:Item:itemEdit}
+    
 coin_index:
     path: /coin/
     defaults: {_controller: AppBundle:Coin:index }
+    
+coin_index_sort:
+    path: /coin/{ascOrDesc}-by-{orderParameter}
+    defaults: {_controller: AppBundle:Coin:indexSort}
+    requirements:
+        ascOrDesc: asc|desc
+        
+coin_add:
+    path: /coin/add
+    defaults: {_controller: AppBundle:Coin:coinAdd}
+    
+coin_edit:
+    path: /coin/{id}/edit
+    defaults: {_controller: AppBundle:Coin:coinEdit}
     
 watch_create:
     path: /watch/add

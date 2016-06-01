@@ -12,14 +12,14 @@
                 Ova aplikacija će vam pomoći da na jednom mjesto imate svoje kolekcionarske predmete.
             {% else %}
                 Poštovani, <br />
-                Molimo vas da se logirate.
+                Molimo vas da se <a href="{{path('fos_user_security_login')}}">logirate</a> ili se <a href="{{path('fos_user_registration_register')}}">registrirajte</a>.
             {% endif %}
         </div>
         
         <div id="wrapper" style="margin-left: 150px; position: relative">
             <div id="sidebarMenu" style="margin-left: -150px; float: left; width: 150px;">
                 {% block sidebarMenu %}
-                    gfg
+                    
                 {% endblock %}
             </div>
 
@@ -33,7 +33,8 @@
             
         </div>
         
-        <div width="100%" style="border-top: solid black; bottom: 0; height: 55px; position: fixed; width: 100%; background-color: white">hjh
+        <div width="100%" style="border-top: solid black; bottom: 0; height: 55px; position: fixed; width: 100%; background-color: white">
+            Aplikacija za kolekcionare
         </div>
     </body>
 </html>

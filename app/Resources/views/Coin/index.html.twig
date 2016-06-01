@@ -1,13 +1,42 @@
 {% extends "::layout.html.twig" %}
 
 {% block container %}
-    {% for coin in coins %}
-        {{coin.name}} <br />
-        {{coin.price}} <br />
-        {{coin.qualityPercent}} <br />
-        {{coin.printedValue}} <br />
-        {{coin.isCurrentlyInUse}} <br />
-        {{coin.isRare}} <br />
-        {{coin.productionMaterial}} <br /><br />
-    {% endfor %}
+    <a href="{{path('coin_index_sort',{'ascOrDesc':'asc','orderParameter':'name'})}}">Poredaj uzlazno po nazivu</a>
+    <a href="{{path('coin_index_sort',{'ascOrDesc':'desc','orderParameter':'name'})}}">Poredaj silazno po nazivu</a>
+    <a href="{{path('coin_index_sort',{'ascOrDesc':'asc','orderParameter':'price'})}}">Poredaj uzlazno po cijeni</a>
+    <a href="{{path('coin_index_sort',{'ascOrDesc':'desc','orderParameter':'price'})}}">Poredaj silazno po cijeni</a>
+    <a href="{{path('coin_index_sort',{'ascOrDesc':'asc','orderParameter':'qualityPercent'})}}">Poredaj uzlazno po postotcima</a>
+    <a href="{{path('coin_index_sort',{'ascOrDesc':'desc','orderParameter':'qualityPercent'})}}">Poredaj silazno po postotcima</a>
+    <br />
+    <a href="{{path('coin_index_sort',{'ascOrDesc':'asc','orderParameter':'printedValue'})}}">Poredaj uzlazno po vrijednosti napisanoj na novcu</a>
+    <a href="{{path('coin_index_sort',{'ascOrDesc':'desc','orderParameter':'printedValue'})}}">Poredaj silazno po vrijednosti napisanoj na novcu</a>
+    <a href="{{path('coin_index_sort',{'ascOrDesc':'asc','orderParameter':'productionMaterial'})}}">Poredaj uzlazno po materijalu izrade</a>
+    <a href="{{path('coin_index_sort',{'ascOrDesc':'desc','orderParameter':'productionMaterial'})}}">Poredaj silazno po materijalu izrade</a>
+    <br/><br />
+    <a href="{{path('coin_add')}}">Dodaj novu kovanicu</a>
+    <br/><br />
+    <table>
+        <tr>
+            <th>Naziv</th>
+            <th>Cijena</th>
+            <th>Kvaliteta u postotcima</th>
+            <th>Vrijednost napisana na novcu</th>
+            <th>Trenutno u upotrebi</th>
+            <th>Rijedak</th>
+            <th>Materijal izrade</th>
+            <th>Mogucnosti</th>
+        </tr>
+        {% for coin in coins %}
+        <tr>
+            <td>{{coin.name}}</td>
+            <td>{{coin.price}} </td>
+            <td>{{coin.qualityPercent}} </td>
+            <td>{{coin.printedValue}} </td>
+            <td>{% if coin.isCurrentlyInUse%}Da{%else%}Ne{%endif%}</td>
+            <td>{% if coin.isRare%}Da{%else%}Ne{%endif%} </td>
+            <td>{{coin.productionMaterial}}</td>
+            <td><a href="{{path('coin_edit',{'id':coin.id})}}">Uredi</a></td>
+        </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

@@ -1,0 +1,13 @@
+{% extends "::layout.html.twig" %}
+
+{% block container %}
+    
+    {{ form_start(form)}}
+        {{form_errors(form)}}
+        {{form_row(form.name)}}
+        {{form_row(form.price)}}
+        {{form_row(form.qualityPercent)}}
+    {{ form_end(form)}}
+
+{% endblock %}
+    

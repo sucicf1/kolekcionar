@@ -1,16 +1,50 @@
 {% extends "::layout.html.twig" %}
 
 {% block container %}
-    {% for watch in watchs %}
-        {{watch.name}} <br />
-        {{watch.price}} <br />
-        {{watch.qualityPercent}} <br />
-        {{watch.model}} <br />
-        {{watch.isMechanical}} <br />
-        {{watch.isDigital}} <br />
-        {{watch.maxDepthWaterResistant}} <br />
-        {{watch.isDisplayingCurrentDate}} <br />
-        {{watch.isDisplayingDayName}} <br />
-        {{watch.batteryType}} <br /> <br />
-    {% endfor %}
+    <a href="{{path('watch_index_sort',{'ascOrDesc':'asc','orderParameter':'name'})}}">Poredaj uzlazno po nazivu</a>
+    <a href="{{path('watch_index_sort',{'ascOrDesc':'desc','orderParameter':'name'})}}">Poredaj silazno po nazivu</a>
+    <a href="{{path('watch_index_sort',{'ascOrDesc':'asc','orderParameter':'price'})}}">Poredaj uzlazno po cijeni</a>
+    <a href="{{path('watch_index_sort',{'ascOrDesc':'desc','orderParameter':'price'})}}">Poredaj silazno po cijeni</a>
+    <a href="{{path('watch_index_sort',{'ascOrDesc':'asc','orderParameter':'qualityPercent'})}}">Poredaj uzlazno po postotcima</a>
+    <a href="{{path('watch_index_sort',{'ascOrDesc':'desc','orderParameter':'qualityPercent'})}}">Poredaj silazno po postotcima</a>
+    <br />
+    <a href="{{path('watch_index_sort',{'ascOrDesc':'asc','orderParameter':'model'})}}">Poredaj uzlazno po modelu</a>
+    <a href="{{path('watch_index_sort',{'ascOrDesc':'desc','orderParameter':'model'})}}">Poredaj silazno po modelu</a>
+    <a href="{{path('watch_index_sort',{'ascOrDesc':'asc','orderParameter':'maxDepthWaterResistant'})}}">Poredaj uzlazno po max. dubini</a>
+    <a href="{{path('watch_index_sort',{'ascOrDesc':'desc','orderParameter':'maxDepthWaterResistant'})}}">Poredaj silazno po max. dubini</a>
+    <a href="{{path('watch_index_sort',{'ascOrDesc':'asc','orderParameter':'batteryType'})}}">Poredaj uzlazno po vrsti baterije</a>
+    <a href="{{path('watch_index_sort',{'ascOrDesc':'desc','orderParameter':'batteryType'})}}">Poredaj silazno po vrsti baterije</a>
+    <br/><br />
+    <a href="{{path('watch_add')}}">Dodaj novi sat</a>
+    <br/><br />
+    <table>
+        <tr>
+            <th>Naziv</th>
+            <th>Cijena</th>
+            <th>Kvaliteta u postotcima</th>
+            <th>Model</th>
+            <th>Mehanicki</th>
+            <th>Digitalni</th>
+            <th>Max. dubina</th>
+            <th>Prikazuje datum</th>
+            <th>Prikazuje danasnji dan</th>
+            <th>Vrsta baterije</th>
+            <th>Mogucnosti</th>
+        </tr>
+        {% for watch in watchs %}
+        <tr>
+            <td>{{watch.name}}</td>
+            <td>{{watch.price}}</td>
+            <td>{{watch.qualityPercent}}</td>
+            <td>{{watch.model}}</td>
+            <td>{% if watch.isMechanical%}Da{%else%}Ne{%endif%}</td>
+            <td>{% if watch.isDigital%}Da{%else%}Ne{%endif%}</td>
+            <td>{{watch.maxDepthWaterResistant}}</td> 
+            <td>{% if watch.isDisplayingCurrentDate%}Da{%else%}Ne{%endif%}</td>
+            <td>{% if watch.isDisplayingDayName%}Da{%else%}Ne{%endif%}</td>
+            <td>{{watch.batteryType}}</td>
+            <td><a href="{{path('watch_edit',{'id':watch.id})}}">Uredi</a></td>
+        </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

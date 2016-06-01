@@ -1,5 +1,10 @@
 {% extends "::base.html.twig"%}
 
 {% block sidebarMenu %}
-    Iz layouta
+    <ul>
+        <li><a href="{{path('item_index')}}">Predmeti</a></li>
+        <li><a href="{{path('coin_index')}}">Kovanice</a></li>
+        <li><a href="{{path('watch_index')}}">Satovi</a></li>
+        <li><a href="{{path('fos_user_security_logout')}}">Logout</a></li>
+    </ul>
 {% endblock %}

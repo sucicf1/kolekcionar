@@ -41,6 +41,20 @@ coin_edit:
     path: /coin/{id}/edit
     defaults: {_controller: AppBundle:Coin:coinEdit}
     
-watch_create:
+watch_index:
+    path: /watch/
+    defaults: {_controller: AppBundle:Watch:index }
+    
+watch_index_sort:
+    path: /watch/{ascOrDesc}-by-{orderParameter}
+    defaults: {_controller: AppBundle:Watch:indexSort}
+    requirements:
+        ascOrDesc: asc|desc
+        
+watch_add:
     path: /watch/add
-    defaults: {_controller: AppBundle:Watch:create }
+    defaults: {_controller: AppBundle:Watch:watchAdd}
+    
+watch_edit:
+    path: /watch/{id}/edit
+    defaults: {_controller: AppBundle:Watch:watchEdit}

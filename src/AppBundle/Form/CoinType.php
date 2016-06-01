@@ -20,12 +20,12 @@ class CoinType extends AbstractType
         $builder->add('name', TextType::class, array('label'=>'Naziv'))
                 ->add('price', NumberType::class, array('label'=>'Cijena','scale'=>2))
                 ->add('qualityPercent', NumberType::class, array('label'=>'Kvaliteta u postotcima','scale'=>2))
-                ->add('save', SubmitType::class,array('label'=>'Spremi'))
                 ->add('printedValue', NumberType::class, array('label'=>'Vrijednost napisana na novcu','scale'=>2))
                 ->add('isCurrentlyInUse', CheckboxType::class, array('label'=>'Je li kovanica trenutno u upotrebi?',
                                                                 'required'=>false))
                 ->add('isRare', CheckboxType::class, array('label'=>'Je li kovanica rijetka?',
                                                             'required'=>false))
-                ->add('productionMaterial', TextType::class, array('label'=>'Materijal izrade (zlato,srebro, ...)'));
+                ->add('productionMaterial', TextType::class, array('label'=>'Materijal izrade (zlato,srebro, ...)'))
+                ->add('save', SubmitType::class,array('label'=>'Spremi'));
     }
 }

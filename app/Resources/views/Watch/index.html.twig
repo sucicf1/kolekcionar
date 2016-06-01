@@ -1,0 +1,16 @@
+{% extends "::layout.html.twig" %}
+
+{% block container %}
+    {% for watch in watchs %}
+        {{watch.name}} <br />
+        {{watch.price}} <br />
+        {{watch.qualityPercent}} <br />
+        {{watch.model}} <br />
+        {{watch.isMechanical}} <br />
+        {{watch.isDigital}} <br />
+        {{watch.maxDepthWaterResistant}} <br />
+        {{watch.isDisplayingCurrentDate}} <br />
+        {{watch.isDisplayingDayName}} <br />
+        {{watch.batteryType}} <br /> <br />
+    {% endfor %}
+{% endblock %}
